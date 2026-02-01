@@ -49,7 +49,7 @@ if [ -d "$xinitdir"/xinitrc.d ] ; then
 	unset f
 fi
 
-/home/byte/dwm-bar/dwm_bar.sh &
+/home/byte/dwm/dwm-bar/dwm_bar.sh &
 
 # "$twm" &
 # "$xclock" -geometry 50x50-1+1 &
