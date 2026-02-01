@@ -1,4 +1,4 @@
 #!/bin/bash
 
-exec dwm
 slstatus
+exec dwm
