@@ -66,6 +66,9 @@ static const char *mutecmd[] = { "amixer", "-q", "set", "Master", "toggle", NULL
 static const char *volupcmd[] = { "amixer", "-q", "set", "Master", "5%+", "unmute", NULL };
 static const char *voldowncmd[] = { "amixer", "-q", "set", "Master", "5%-", "unmute", NULL };
 
+static const char *brupcmd[] = { "brightnessctl", "set", "5%+", NULL };
+static const char *brdowncmd[] = { "brightnessctl", "set", "5%-", NULL };
+
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_space,  spawn,          {.v = dmenucmd } },
@@ -94,6 +97,8 @@ static const Key keys[] = {
   { 0, XF86XK_AudioMute, spawn, {.v = mutecmd } },
   { 0, XF86XK_AudioLowerVolume, spawn, {.v = voldowncmd } },
   { 0, XF86XK_AudioRaiseVolume, spawn, {.v = volupcmd } },
+  { 0, XF86XK_MonBrightnessUp,  spawn,          {.v = brupcmd} },
+  { 0, XF86XK_MonBrightnessDown, spawn,          {.v = brdowncmd} },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
