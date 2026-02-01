@@ -167,20 +167,20 @@ drw_fontset_free(Fnt *font)
 }
 
 void
-drw_clr_create(Drw *drw, Clr *dest, const char *clrname, unsigned int alpha)
+drw_clr_create(Drw *drw, Clr *dest, const char *clrname)
 {
 	if (!drw || !dest || !clrname)
 		return;
 
-	if (!XftColorAllocName(drw->dpy, drw->visual, drw->cmap,
+	if (!XftColorAllocName(drw->dpy, DefaultVisual(drw->dpy, drw->screen),
+	                       DefaultColormap(drw->dpy, drw->screen),
 	                       clrname, dest))
 		die("error, cannot allocate color '%s'", clrname);
-  dest ->pixel = (dest->pixel & 0x00ffffffU) | alpha << 24;
 }
 
 /* Create color schemes. */
 Clr *
-drw_scm_create(Drw *drw, const char *clrnames[], unsigned int clralphas[], size_t clrcount)
+drw_scm_create(Drw *drw, const char *clrnames[], size_t clrcount)
 {
 	size_t i;
 	Clr *ret;
@@ -273,8 +273,9 @@ drw_text(Drw *drw, int x, int y, unsigned int w, unsigned int h, unsigned int lp
 		XFillRectangle(drw->dpy, drw->drawable, drw->gc, x, y, w, h);
 		if (w < lpad)
 			return x + w;
-		d = XftDrawCreate(drw->dpy, drw->drawable, drw->visual, drw->cmap);
-
+		d = XftDrawCreate(drw->dpy, drw->drawable,
+		                  DefaultVisual(drw->dpy, drw->screen),
+		                  DefaultColormap(drw->dpy, drw->screen));
 		x += lpad;
 		w -= lpad;
 	}

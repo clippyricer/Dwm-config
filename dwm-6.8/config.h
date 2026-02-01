@@ -13,18 +13,6 @@ static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
 static const char col_cyan[]        = "#005577";
-/* app icon / tag icon separators */
-static char outer_separator_beg = '[';
-static char outer_separator_end = ']';
-static char inner_separator     = ' ';
-
-/* app icon truncation */
-static unsigned int truncate_icons_after = 3;
-static const char *truncate_symbol = "+";
-
-static const int user_bh = 0; /* 0 means that dwm will calculate bar height, >= 1 means dwm will user_bh as bar height */
-static const unsigned int baralpha = 10;     /* 0xd0 is approx 80% opacity */
-static const unsigned int borderalpha = OPAQUE; /* OPAQUE means 100% solid */
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
