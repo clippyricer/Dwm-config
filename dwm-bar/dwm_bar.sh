@@ -37,7 +37,7 @@ export SEP2="]"
 #. "$DIR/bar-functions/dwm_mpc.sh"
 . "$DIR/bar-functions/dwm_networkmanager.sh"
 #. "$DIR/bar-functions/dwm_pulse.sh"
-#. "$DIR/bar-functions/dwm_resources.sh"
+. "$DIR/bar-functions/dwm_resources.sh"
 #. "$DIR/bar-functions/dwm_spotify.sh"
 #. "$DIR/bar-functions/dwm_transmission.sh"
 #. "$DIR/bar-functions/dwm_vpn.sh"
@@ -48,9 +48,9 @@ parallelize() {
     while true
     do
         printf "Running parallel processes\n"
-        /home/byte/dwm/dwm-bar/bar-functions/dwm_networkmanager.sh &
+        # /home/byte/dwm/dwm-bar/bar-functions/dwm_networkmanager.sh &
         /home/byte/dwm/dwm-bar/bar-functions/dwm_weather.sh &
-        sleep 5
+        sleep 2
     done
 }
 parallelize &
@@ -75,7 +75,7 @@ do
     #upperbar="$upperbar$(dwm_mail)"
     #upperbar="$upperbar$(dwm_mpc)"
     #upperbar="$upperbar$(dwm_pulse)"
-    #upperbar="$upperbar$(dwm_resources)"
+    upperbar="$upperbar$(dwm_resources)"
     #upperbar="$upperbar$(dwm_spotify)"
     #upperbar="$upperbar$(dwm_transmission)"
     #upperbar="$upperbar$(dwm_vpn)"
@@ -89,5 +89,5 @@ do
     xsetroot -name "$upperbar"
     # Uncomment the line below to enable the lowerbar 
     #xsetroot -name "$upperbar;$lowerbar"
-    sleep 1
+    sleep 0.2
 done

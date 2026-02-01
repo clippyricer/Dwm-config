@@ -49,8 +49,17 @@ if [ -d "$xinitdir"/xinitrc.d ] ; then
 	unset f
 fi
 
+# Dwm status bar
 /home/byte/dwm/dwm-bar/dwm_bar.sh &
 
+# Remove mouse acceleration
+# Make sure to change 9 to device number
+# Use xinput list
+xinput set-prop "9" "libinput Accel Profile Enabled" 0 1 0
+
+# Make mouse speed faster
+# Make sure to change name to name
+xinput --set-prop "Elan Touchpad" "libinput Accel Speed" 0.5
 # "$twm" &
 # "$xclock" -geometry 50x50-1+1 &
 # "$xterm" -geometry 80x50+494+51 &
