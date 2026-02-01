@@ -72,6 +72,6 @@ static const struct arg args[] = {
   { wifi_perc, "[Signal %s%]", "wlan0" },
   { disk_used, "[ %s]",        "/" },
   { disk_total, "[ %s]",       "/" },
-	{ datetime, "[ %s]",        "%F %T" },
+	{ datetime, "[ %s]",        "%I:%M %p" },
  
 };
