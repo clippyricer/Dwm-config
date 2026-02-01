@@ -50,7 +50,7 @@ if [ -d "$xinitdir"/xinitrc.d ] ; then
 fi
 
 # Dwm status bar
-/home/byte/dwm/dwm-bar/dwm_bar.sh &
+# /home/byte/dwm/dwm-bar/dwm_bar.sh &
 
 # Remove mouse acceleration
 # Make sure to change 9 to device number
@@ -66,4 +66,4 @@ xinput --set-prop "Elan Touchpad" "libinput Accel Speed" 0.5
 # "$xterm" -geometry 80x20+494-0 &
 # exec "$xterm" -geometry 80x66+0+0 -name login 
 feh --bg-scale /home/byte/Pictures/background.jpg &
-exec dwm
+/home/byte/dwm/start.sh
