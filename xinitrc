@@ -64,5 +64,6 @@ xinput --set-prop "Elan Touchpad" "libinput Accel Speed" 0.5
 # "$xclock" -geometry 50x50-1+1 &
 # "$xterm" -geometry 80x50+494+51 &
 # "$xterm" -geometry 80x20+494-0 &
-# exec "$xterm" -geometry 80x66+0+0 -name login
+# exec "$xterm" -geometry 80x66+0+0 -name login 
+feh --bg-scale /home/byte/Pictures/background.jpg &
 exec dwm
