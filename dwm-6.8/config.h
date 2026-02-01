@@ -1,4 +1,5 @@
 /* See LICENSE file for copyright and license details. */
+#include <X11/XF86keysym.h>
 
 /* appearance */
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
@@ -61,6 +62,10 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "rofi", "-show", "drun", "-show-icons", "-theme", "~/.config/rofi/config.rasi", NULL };
 static const char *termcmd[]  = { "kitty", NULL };
 
+static const char *mutecmd[] = { "amixer", "-q", "set", "Master", "toggle", NULL };
+static const char *volupcmd[] = { "amixer", "-q", "set", "Master", "5%+", "unmute", NULL };
+static const char *voldowncmd[] = { "amixer", "-q", "set", "Master", "5%-", "unmute", NULL };
+
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_Return, spawn,          {.v = dmenucmd } },
@@ -86,6 +91,9 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
+  { 0, XF86XK_AudioMute, spawn, {.v = mutecmd } },
+  { 0, XF86XK_AudioLowerVolume, spawn, {.v = voldowncmd } },
+  { 0, XF86XK_AudioRaiseVolume, spawn, {.v = volupcmd } },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
